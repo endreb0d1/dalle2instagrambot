@@ -106,13 +106,12 @@ while True:
             pyautogui.click()
             time.sleep(2)
 
-            # add image
+            # upload image from PC
             click_point = 'img\add_image.png'
             find_on_screen()
             pyautogui.click()
             time.sleep(5)
 
-            # upload image from PC
             click_point = 'img\select_from_computer.png'
             find_on_screen()
             pyautogui.click()
@@ -140,7 +139,7 @@ while True:
 
             browser.quit()
 
-            # delete downloaded photos
+            # delete uploaded photos
             os.remove("dalle_img.webp")
             os.remove("dalle_img.jpg")
 

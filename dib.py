@@ -143,6 +143,7 @@ while True:
             try:
                 os.remove("dalle_img.webp")
                 os.remove("dalle_img.jpg")
+            
             except:
                 pass
 

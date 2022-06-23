@@ -140,8 +140,11 @@ while True:
             browser.quit()
 
             # delete uploaded photos
-            os.remove("dalle_img.webp")
-            os.remove("dalle_img.jpg")
+            try:
+                os.remove("dalle_img.webp")
+                os.remove("dalle_img.jpg")
+            except:
+                pass
 
             old_title = title
         

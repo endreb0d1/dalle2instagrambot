@@ -65,89 +65,93 @@ while True:
         pyautogui.click(button='right')
         time.sleep(1)
         click_point = 'img\save_image_as.png'
-        find_on_screen()
-        pyautogui.click()
-        time.sleep(5)
-        pyautogui.typewrite('dalle_img')
-        pyautogui.press('enter')
-        time.sleep(5)
+        checker = pyautogui.locateCenterOnScreen(click_point)                          
+        if checker == None:
+            browser.quit()
+        else:
+            find_on_screen()
+            pyautogui.click()
+            time.sleep(5)
+            pyautogui.typewrite('dalle_img')
+            pyautogui.press('enter')
+            time.sleep(5)
 
-        # convert to jpg if webp
-        try:
-            dalle_img = Image.open("dalle_img.webp").convert("RGB")
-            dalle_img.save("dalle_img.jpg","jpeg")
-            
-        except:
-            pass
+            # convert to jpg if webp
+            try:
+                dalle_img = Image.open("dalle_img.webp").convert("RGB")
+                dalle_img.save("dalle_img.jpg","jpeg")
 
-        # open Instagram
-        browser.get('https://www.instagram.com')
-        time.sleep(2)
+            except:
+                pass
 
-        # login
-        click_point = 'img\instagram_username.png'
-        find_on_screen()
-        pyautogui.click()
-        time.sleep(2)
-        pyautogui.typewrite('instagram_username')
-        time.sleep(2)
-        pyautogui.press('tab')
-        pyautogui.typewrite('instagram_password')
-        pyautogui.press('enter')
-        time.sleep(10)
+            # open Instagram
+            browser.get('https://www.instagram.com')
+            time.sleep(2)
 
-        # turn off notifications
-        click_point = 'img\notifications.png'
-        find_on_screen()
-        pyautogui.click()
-        time.sleep(2)
+            # login
+            click_point = 'img\instagram_username.png'
+            find_on_screen()
+            pyautogui.click()
+            time.sleep(2)
+            pyautogui.typewrite('instagram_username')
+            time.sleep(2)
+            pyautogui.press('tab')
+            pyautogui.typewrite('instagram_password')
+            pyautogui.press('enter')
+            time.sleep(10)
 
-        # add image
-        click_point = 'img\add_image.png'
-        find_on_screen()
-        pyautogui.click()
-        time.sleep(5)
+            # turn off notifications
+            click_point = 'img\notifications.png'
+            find_on_screen()
+            pyautogui.click()
+            time.sleep(2)
 
-        # upload image from PC
-        click_point = 'img\select_from_computer.png'
-        find_on_screen()
-        pyautogui.click()
-        time.sleep(5)
-        pyautogui.typewrite('d')
-        pyautogui.press('enter')
-        time.sleep(5)
+            # add image
+            click_point = 'img\add_image.png'
+            find_on_screen()
+            pyautogui.click()
+            time.sleep(5)
 
-        click_point = 'img\next.png'
-        find_on_screen()
-        pyautogui.click()
-        time.sleep(5)
+            # upload image from PC
+            click_point = 'img\select_from_computer.png'
+            find_on_screen()
+            pyautogui.click()
+            time.sleep(5)
+            pyautogui.typewrite('d')
+            pyautogui.press('enter')
+            time.sleep(5)
 
-        click_point = 'img\next.png'
-        find_on_screen()
-        pyautogui.click()
-        time.sleep(5)
-        
-        # paste tags
-        pyautogui.press('tab')
-        pyautogui.press('tab')
-        pyautogui.press('tab')
-        pyautogui.press('tab')
-        pyautogui.press('tab')
-        pyperclip.paste()
-        time.sleep(5)
+            click_point = 'img\next.png'
+            find_on_screen()
+            pyautogui.click()
+            time.sleep(5)
 
-        click_point = 'img\share.png'
-        find_on_screen()
-        pyautogui.click()
-        time.sleep(5)
+            click_point = 'img\next.png'
+            find_on_screen()
+            pyautogui.click()
+            time.sleep(5)
 
-        browser.quit()
+            # paste tags
+            pyautogui.press('tab')
+            pyautogui.press('tab')
+            pyautogui.press('tab')
+            pyautogui.press('tab')
+            pyautogui.press('tab')
+            pyperclip.paste()
+            time.sleep(5)
 
-        # delete downloaded photos
-        os.remove("dalle_img.webp")
-        os.remove("dalle_img.jpg")
-        
-        old_title = title
+            click_point = 'img\share.png'
+            find_on_screen()
+            pyautogui.click()
+            time.sleep(5)
+
+            browser.quit()
+
+            # delete downloaded photos
+            os.remove("dalle_img.webp")
+            os.remove("dalle_img.jpg")
+
+            old_title = title
         
     # repeat every 20 minutes    
     time.sleep(1200)

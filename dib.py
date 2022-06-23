@@ -132,11 +132,8 @@ while True:
             time.sleep(5)
 
             # paste tags
-            pyautogui.press('tab')
-            pyautogui.press('tab')
-            pyautogui.press('tab')
-            pyautogui.press('tab')
-            pyautogui.press('tab')
+            for _ in range(5):
+                pyautogui.press('tab')
             pyperclip.paste()
             time.sleep(5)
 

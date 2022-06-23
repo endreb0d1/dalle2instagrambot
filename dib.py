@@ -120,16 +120,12 @@ while True:
             pyautogui.typewrite('d')
             pyautogui.press('enter')
             time.sleep(5)
-
-            click_point = 'img\next.png'
-            find_on_screen()
-            pyautogui.click()
-            time.sleep(5)
-
-            click_point = 'img\next.png'
-            find_on_screen()
-            pyautogui.click()
-            time.sleep(5)
+            
+            for _ in range(2):
+                click_point = 'img\next.png'
+                find_on_screen()
+                pyautogui.click()
+                time.sleep(5)
 
             # paste tags
             for _ in range(5):
